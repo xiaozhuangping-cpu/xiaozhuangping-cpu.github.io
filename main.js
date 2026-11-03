@@ -36,7 +36,7 @@ grid.innerHTML = WORKS.map((w, i) => `
   <article class="work-card reveal" data-cat="${w.cat}" data-i="${i}" tabindex="0" role="button" aria-label="${w.title}">
     ${thumbHtml(w)}
     <div class="work-body">
-      <p class="eyebrow">${CAT_NAME[w.cat]}</p>
+      <p class="eyebrow">${CAT_NAME[w.cat]} · <span class="ai-tag">AI 辅助生成</span></p>
       <h3>${w.title}</h3>
       <p class="credit">for <em>${w.for}</em></p>
       <p>${w.desc}</p>
@@ -69,7 +69,7 @@ function openModal(i) {
   $('#modalMedia').innerHTML = w.gallery
     ? `<div class="gallery">${w.gallery.map(src => `<img src="${src}" alt="${w.title} 截图" loading="lazy" />`).join('')}</div>`
     : `<div class="thumb" style="--h:${w.hue}">${w.icon}</div>`;
-  $('#modalCat').textContent = `${CAT_NAME[w.cat]} · for ${w.for}`;
+  $('#modalCat').textContent = `${CAT_NAME[w.cat]} · for ${w.for} · AI 辅助生成`;
   $('#modalTitle').textContent = w.title;
   $('#modalDesc').textContent = w.desc;
   $('#modalTags').innerHTML = w.tags.map(t => `<li>${t}</li>`).join('');

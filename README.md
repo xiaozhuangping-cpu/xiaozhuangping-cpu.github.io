@@ -1,5 +1,7 @@
 # 小庄 Studio · 个人作品集博客
 
+> 本站及其中作品均为 AI 辅助生成（使用 Claude Code），由作者策划与发布。
+
 纯静态（HTML / CSS / JS，零依赖）个人站点，部署在 GitHub Pages：
 https://xiaozhuangping-cpu.github.io/
 
