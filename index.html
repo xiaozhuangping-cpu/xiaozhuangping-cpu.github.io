@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>小庄 · 作品与技能</title>
+  <meta name="description" content="视频制作 / 管理系统 / App / 浏览器插件 / 网页开发 —— 个人作品集与技能介绍" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="nav" id="top">
+    <a class="brand" href="#top"><span class="brand-mark">Z</span>小庄<span class="brand-sub">Studio</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#skills">技能</a>
+      <a href="#featured">精选</a>
+      <a href="#works">作品</a>
+      <a href="#process">流程</a>
+      <a href="#contact">联系</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="切换主题">◐</button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <p class="eyebrow reveal">Xiao Zhuang × Code &amp; Film · presents</p>
+      <h1 class="hero-title reveal">一个人，<br /><em>做完整的产品。</em></h1>
+      <p class="hero-sub reveal">从一支宣传短片，到一套后台管理系统，到手机 App 与浏览器插件 ——<br class="hide-sm" />我把想法从草图一路做到上线。</p>
+      <p class="hero-en reveal">Video · Admin Systems · Apps · Browser Extensions · Websites</p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-primary" href="#works">查看作品 →</a>
+        <a class="btn btn-ghost" href="#contact">合作咨询</a>
+      </div>
+
+      <ul class="stats reveal">
+        <li><strong data-count="5">0</strong><span>技能方向</span></li>
+        <li><strong data-count="30" data-suffix="+">0</strong><span>交付项目</span></li>
+        <li><strong data-count="6" data-suffix="年">0</strong><span>开发经验</span></li>
+        <li><strong data-count="100" data-suffix="%">0</strong><span>响应式交付</span></li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="section-head reveal">
+        <p class="eyebrow">Category 01</p>
+        <h2>我能做什么</h2>
+        <p class="section-desc">五个方向，一套完整的交付能力。</p>
+      </div>
+
+      <div class="skill-grid">
+        <article class="skill-card reveal" data-hue="10">
+          <div class="skill-icon">🎬</div>
+          <h3>视频制作</h3>
+          <p>宣传片、产品演示、知识科普、短视频。脚本 → 分镜 → 剪辑 → 调色 → 字幕，也能用代码生成动画短片。</p>
+          <ul class="tags"><li>剪辑调色</li><li>动态图形</li><li>AI 生成</li><li>代码动画</li></ul>
+        </article>
+        <article class="skill-card reveal" data-hue="210">
+          <div class="skill-icon">🗂️</div>
+          <h3>管理系统</h3>
+          <p>后台管理、主数据平台、ERP / CRM、数据看板。权限、审批流、报表导出、数据同步一条龙。</p>
+          <ul class="tags"><li>Vue / React</li><li>Java / Spring</li><li>MySQL</li><li>RBAC 权限</li></ul>
+        </article>
+        <article class="skill-card reveal" data-hue="150">
+          <div class="skill-icon">📱</div>
+          <h3>App 开发</h3>
+          <p>iOS / Android 跨平台应用、小程序。从交互原型到上架商店，一套代码多端运行。</p>
+          <ul class="tags"><li>Flutter</li><li>uni-app</li><li>小程序</li><li>上架发布</li></ul>
+        </article>
+        <article class="skill-card reveal" data-hue="270">
+          <div class="skill-icon">🧩</div>
+          <h3>网页插件</h3>
+          <p>Chrome / Edge 浏览器扩展：页面增强、数据采集、自动化填表、AI 助手侧边栏。</p>
+          <ul class="tags"><li>Manifest V3</li><li>Content Script</li><li>自动化</li><li>AI 集成</li></ul>
+        </article>
+        <article class="skill-card reveal" data-hue="40">
+          <div class="skill-icon">🌐</div>
+          <h3>网页 / 官网</h3>
+          <p>企业官网、落地页、个人博客、活动页。响应式布局，手机电脑都好看，可部署到 GitHub Pages。</p>
+          <ul class="tags"><li>响应式</li><li>SEO</li><li>动效</li><li>静态部署</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="section" id="featured">
+      <div class="featured reveal">
+        <div class="featured-media" data-hue="210">
+          <span class="badge">精选项目</span>
+          <div class="mock-window">
+            <div class="mock-bar"><i></i><i></i><i></i></div>
+            <div class="mock-body">
+              <div class="mock-side"></div>
+              <div class="mock-main">
+                <div class="mock-row"><b></b><b></b><b></b></div>
+                <div class="mock-chart"><span style="--h:40%"></span><span style="--h:70%"></span><span style="--h:55%"></span><span style="--h:90%"></span><span style="--h:65%"></span><span style="--h:80%"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-text">
+          <p class="eyebrow">Featured · 管理系统</p>
+          <h2>主数据管理平台 MDM</h2>
+          <p class="credit">for <em>企业数据治理</em></p>
+          <p>多源业务库的 SKU、客户、供应商数据统一采集、清洗与同步。配置驱动的同步引擎、字段映射、审批流与数据质量看板，让几十个系统说同一种语言。</p>
+          <ul class="bullets">
+            <li>配置驱动的多源数据同步</li>
+            <li>细粒度权限与审批流</li>
+            <li>实时数据质量监控看板</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section class="section" id="works">
+      <div class="section-head reveal">
+        <p class="eyebrow">Category 02</p>
+        <h2>作品集</h2>
+        <p class="section-desc"><span id="workCount">0</span> 个项目</p>
+      </div>
+
+      <div class="filters reveal" role="tablist">
+        <button class="chip active" data-filter="all">全部</button>
+        <button class="chip" data-filter="video">视频</button>
+        <button class="chip" data-filter="admin">管理系统</button>
+        <button class="chip" data-filter="app">App</button>
+        <button class="chip" data-filter="ext">网页插件</button>
+        <button class="chip" data-filter="web">网页</button>
+      </div>
+
+      <div class="work-grid" id="workGrid"></div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" id="process">
+      <div class="section-head reveal">
+        <p class="eyebrow">Category 03</p>
+        <h2>合作流程</h2>
+      </div>
+      <ol class="steps">
+        <li class="reveal"><span>01</span><h4>需求沟通</h4><p>聊清楚目标、用户与预算，给出方案和报价。</p></li>
+        <li class="reveal"><span>02</span><h4>原型设计</h4><p>交互原型 / 分镜脚本先行，确认后再动手。</p></li>
+        <li class="reveal"><span>03</span><h4>开发制作</h4><p>按周同步进度，随时可预览阶段成果。</p></li>
+        <li class="reveal"><span>04</span><h4>上线维护</h4><p>部署上线、交付源码与文档，持续维护。</p></li>
+      </ol>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="contact reveal">
+        <p class="eyebrow">And the project goes to…</p>
+        <h2>有想法？一起把它做出来。</h2>
+        <p>视频、系统、App、插件、网站 —— 告诉我你想做什么。</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://github.com/xiaozhuangping-cpu" target="_blank" rel="noopener">GitHub 主页</a>
+          <a class="btn btn-ghost" href="mailto:xiaozhuangping-cpu@users.noreply.github.com">发送邮件</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> 小庄 Studio · Built with HTML / CSS / JS · Hosted on GitHub Pages</p>
+    <a href="#top">回到顶部 ↑</a>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="关闭">关闭 ✕</button>
+      <div class="modal-media" id="modalMedia"></div>
+      <p class="eyebrow" id="modalCat"></p>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+      <ul class="tags" id="modalTags"></ul>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
