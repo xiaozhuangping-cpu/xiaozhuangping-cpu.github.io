@@ -14,6 +14,12 @@ const WORKS = [
   { cat: 'app',   icon: '🟢', hue: 120, time: '小程序', title: '预约小程序',       for: '门店服务',     desc: '在线预约、会员积分、核销管理，配套商家后台。', tags: ['微信小程序', '会员体系', '后台'] },
   { cat: 'ext',   icon: '🧩', hue: 270, time: 'Chrome', title: 'AI 侧边栏助手',   for: '效率工具',     desc: '浏览任意网页时一键总结、翻译、提取表格数据。', tags: ['Manifest V3', 'AI 接口', '侧边栏'] },
   { cat: 'ext',   icon: '⚡', hue: 290, time: 'Chrome', title: '自动化填表插件',   for: '后台录入',     desc: '识别表单字段，批量导入 Excel 数据自动填写提交。', tags: ['Content Script', 'Excel', '自动化'] },
+  { cat: 'web', icon: '🛍️', hue: 190, time: '在线', live: true, title: 'Wavely 多语言独立站 + AI 客服', for: '跨境品牌出海',
+    img: 'assets/works/wavely-shop-home.jpg', gallery: ['assets/works/wavely-shop-home.jpg'],
+    desc: '中英德日西 5 种语言、6 种币种的品牌独立站，下单实时同步到 ERP；内置 DeepSeek AI 客服，多语言导购（对话里直接加购）、查物流、答政策，AI 写的 Listing 直接上架。',
+    tags: ['React', 'Supabase', 'DeepSeek AI', '多语言'],
+    links: [{ label: '在线体验 →', href: 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/shop/', primary: true },
+            { label: '查看源码', href: 'https://github.com/xiaozhuangping-cpu/wavely-crossborder' }] },
   { cat: 'web',   icon: '🌐', hue: 40,  time: 'Web',   title: '企业官网',         for: '制造业客户',   desc: '中英双语响应式官网，SEO 优化，后台可自助更新内容。', tags: ['响应式', 'SEO', '多语言'] },
   { cat: 'web',   icon: '✨', hue: 55,  time: 'Web',   title: '个人作品集博客',   for: '就是这个站',   desc: '纯静态、零依赖，部署在 GitHub Pages，手机电脑自适应。', tags: ['HTML/CSS/JS', 'GitHub Pages', '暗色模式'] },
 ];
