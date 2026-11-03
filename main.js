@@ -3,7 +3,12 @@
 const WORKS = [
   { cat: 'video', icon: '🎬', hue: 10,  time: '02:30', title: '品牌宣传片', for: '新品发布会',   desc: '从脚本、分镜到剪辑调色的一支品牌短片，节奏紧凑、情绪饱满。', tags: ['脚本分镜', '剪辑调色', '配乐字幕'] },
   { cat: 'video', icon: '🎞️', hue: 330, time: '01:00', title: '代码生成动画短片', for: '科普解说',     desc: '用代码逐帧绘制的风格化动画，油画、水彩、浮世绘多种画风可选。', tags: ['程序化动画', 'AI 辅助', '多风格'] },
-  { cat: 'admin', icon: '🗂️', hue: 210, time: 'Web',   title: '主数据管理平台',   for: '企业数据治理', desc: '多源数据采集、字段映射、同步引擎与数据质量看板。', tags: ['Vue3', 'Spring Boot', 'MySQL'] },
+  { cat: 'admin', icon: '🌊', hue: 195, time: '在线', live: true, title: 'Wavely 跨境电商 ERP', for: '跨境卖家多平台运营',
+    img: 'assets/works/wavely-erp-inbox.jpg', gallery: ['assets/works/wavely-erp-inbox.jpg', 'assets/works/wavely-erp-dashboard.jpg'],
+    desc: '多平台订单收件箱、一键发货与物流轨迹、海外仓库存预警、多币种利润计算器。访客免注册即可在线操作。',
+    tags: ['React', 'react-admin', 'Supabase', 'PostgreSQL'],
+    links: [{ label: '在线体验 →', href: 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/erp/', primary: true },
+            { label: '查看源码', href: 'https://github.com/xiaozhuangping-cpu/wavely-crossborder' }] },
   { cat: 'admin', icon: '📊', hue: 190, time: 'Web',   title: '运营数据看板',     for: '电商运营',     desc: '销售、库存、订单实时可视化，支持钻取分析与报表导出。', tags: ['ECharts', '报表导出', '权限控制'] },
   { cat: 'app',   icon: '📱', hue: 150, time: 'iOS/Android', title: '跨平台生活 App', for: '本地服务', desc: 'Flutter 一套代码双端上线，含登录、支付、消息推送。', tags: ['Flutter', '支付', '推送'] },
   { cat: 'app',   icon: '🟢', hue: 120, time: '小程序', title: '预约小程序',       for: '门店服务',     desc: '在线预约、会员积分、核销管理，配套商家后台。', tags: ['微信小程序', '会员体系', '后台'] },
@@ -19,15 +24,24 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
 // Render works
 const grid = $('#workGrid');
+WORKS.sort((a, b) => (b.live ? 1 : 0) - (a.live ? 1 : 0));   // 在线项目排最前（sort 是稳定的）
+
+const thumbHtml = (w) => w.img
+  ? `<div class="thumb has-img"><img src="${w.img}" alt="${w.title} 截图" loading="lazy" /><span class="badge${w.live ? ' live' : ''}">${w.live ? '● ' : ''}${w.time}</span></div>`
+  : `<div class="thumb" style="--h:${w.hue}">${w.icon}<span class="badge">${w.time}</span></div>`;
+const linksHtml = (w) => (w.links ?? []).map(l =>
+  `<a class="btn ${l.primary ? 'btn-primary' : 'btn-ghost'} btn-sm" href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+
 grid.innerHTML = WORKS.map((w, i) => `
   <article class="work-card reveal" data-cat="${w.cat}" data-i="${i}" tabindex="0" role="button" aria-label="${w.title}">
-    <div class="thumb" style="--h:${w.hue}">${w.icon}<span class="badge">${w.time}</span></div>
+    ${thumbHtml(w)}
     <div class="work-body">
       <p class="eyebrow">${CAT_NAME[w.cat]}</p>
       <h3>${w.title}</h3>
       <p class="credit">for <em>${w.for}</em></p>
       <p>${w.desc}</p>
       <ul class="tags">${w.tags.map(t => `<li>${t}</li>`).join('')}</ul>
+      ${w.links ? `<div class="card-links">${linksHtml(w)}</div>` : ''}
     </div>
   </article>`).join('');
 
@@ -52,17 +66,20 @@ applyFilter('all');
 const modal = $('#modal');
 function openModal(i) {
   const w = WORKS[i];
-  $('#modalMedia').innerHTML = `<div class="thumb" style="--h:${w.hue}">${w.icon}</div>`;
+  $('#modalMedia').innerHTML = w.gallery
+    ? `<div class="gallery">${w.gallery.map(src => `<img src="${src}" alt="${w.title} 截图" loading="lazy" />`).join('')}</div>`
+    : `<div class="thumb" style="--h:${w.hue}">${w.icon}</div>`;
   $('#modalCat').textContent = `${CAT_NAME[w.cat]} · for ${w.for}`;
   $('#modalTitle').textContent = w.title;
   $('#modalDesc').textContent = w.desc;
   $('#modalTags').innerHTML = w.tags.map(t => `<li>${t}</li>`).join('');
+  $('#modalLinks').innerHTML = linksHtml(w);
   modal.hidden = false;
   document.body.style.overflow = 'hidden';
   $('#modalClose').focus();
 }
 function closeModal() { modal.hidden = true; document.body.style.overflow = ''; }
-grid.addEventListener('click', e => { const c = e.target.closest('.work-card'); if (c) openModal(+c.dataset.i); });
+grid.addEventListener('click', e => { if (e.target.closest('a')) return; const c = e.target.closest('.work-card'); if (c) openModal(+c.dataset.i); });
 grid.addEventListener('keydown', e => { const c = e.target.closest('.work-card'); if (c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openModal(+c.dataset.i); } });
 $('#modalClose').addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
