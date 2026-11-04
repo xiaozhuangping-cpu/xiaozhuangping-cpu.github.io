@@ -4,20 +4,33 @@ const WORKS = [
   { cat: 'video', icon: '🎬', hue: 10,  time: '02:30', title: '品牌宣传片', for: '新品发布会',   desc: '从脚本、分镜到剪辑调色的一支品牌短片，节奏紧凑、情绪饱满。', tags: ['脚本分镜', '剪辑调色', '配乐字幕'] },
   { cat: 'video', icon: '🎞️', hue: 330, time: '01:00', title: '代码生成动画短片', for: '科普解说',     desc: '用代码逐帧绘制的风格化动画，油画、水彩、浮世绘多种画风可选。', tags: ['程序化动画', 'AI 辅助', '多风格'] },
   { cat: 'admin', icon: '🌊', hue: 195, time: '在线', live: true, title: 'Wavely 跨境电商 ERP', for: '跨境卖家多平台运营',
-    img: 'assets/works/wavely-erp-inbox.jpg', gallery: ['assets/works/wavely-erp-inbox.jpg', 'assets/works/wavely-erp-dashboard.jpg'],
-    desc: '多平台订单收件箱、一键发货与物流轨迹、海外仓库存预警、多币种利润计算器，内置 DeepSeek AI 运营助手：问数据出图表、写多语言 Listing、确认后批量发货。访客免注册即可在线操作。',
-    tags: ['React', 'Supabase', 'DeepSeek AI', '工具调用'],
+    img: 'assets/works/wavely-erp-dashboard.jpg', gallery: ['assets/works/wavely-erp-dashboard.jpg', 'assets/works/wavely-erp-inbox.jpg', 'assets/works/wavely-1688-collect.jpg'],
+    desc: 'Amazon / Shopee / TikTok Shop / 独立站订单统一处理；SPU + 多规格 SKU、海外仓 / FBA 库存预警；按仓库计算补货建议，一键按供应商拆单生成采购单，分批收货入库。内置 AI 运营助手：问数据出图表、写多语言 Listing、查补货，写操作需确认。业务规则全部在 Postgres 函数里，每次发布前 CI 自动跑数据库测试。访客免注册在线操作。',
+    tags: ['React', 'react-admin', 'Supabase / Postgres', 'RLS 权限', 'AI 工具调用', 'CI 测试'],
     links: [{ label: '在线体验 →', href: 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/erp/', primary: true },
             { label: '查看源码', href: 'https://github.com/xiaozhuangping-cpu/wavely-crossborder' }] },
   { cat: 'admin', icon: '📊', hue: 190, time: 'Web',   title: '运营数据看板',     for: '电商运营',     desc: '销售、库存、订单实时可视化，支持钻取分析与报表导出。', tags: ['ECharts', '报表导出', '权限控制'] },
   { cat: 'app',   icon: '📱', hue: 150, time: 'iOS/Android', title: '跨平台生活 App', for: '本地服务', desc: 'Flutter 一套代码双端上线，含登录、支付、消息推送。', tags: ['Flutter', '支付', '推送'] },
   { cat: 'app',   icon: '🟢', hue: 120, time: '小程序', title: '预约小程序',       for: '门店服务',     desc: '在线预约、会员积分、核销管理，配套商家后台。', tags: ['微信小程序', '会员体系', '后台'] },
+  { cat: 'ext', icon: '🧩', hue: 270, time: '可安装', live: true, title: 'Wavely 1688 采集插件', for: '跨境卖家选品上架',
+    img: 'assets/works/wavely-1688-collect.jpg', gallery: ['assets/works/wavely-1688-collect.jpg'],
+    desc: 'Chrome / Edge 插件（Manifest V3）：1688 列表页勾选、跨页累计批量采集，详情页一键采集；读取页面数据得到规格、每个规格的价格 / 库存 / 重量、阶梯价、供应商。后台限速逐个采集，遇到登录或滑块验证自动暂停交给用户。ERP 内置安装入口与版本检测，采集箱里按目标毛利定价，AI 翻译后批量上架。',
+    tags: ['Manifest V3', 'Content Script', 'Service Worker', '数据采集', 'AI 本地化'],
+    links: [{ label: '安装与体验 →', href: 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/erp/#/import_drafts', primary: true },
+            { label: '查看源码', href: 'https://github.com/xiaozhuangping-cpu/wavely-crossborder/tree/main/extension' }] },
+  { cat: 'video', icon: '🎬', hue: 20, time: '4 × 8 秒', live: true, title: 'AI 商品场景短片', for: 'Wavely 独立站与社媒投放',
+    img: 'assets/works/wavely-film-pet.jpg',
+    gallery: ['https://xiaozhuangping-cpu.github.io/wavely-crossborder/shop/videos/WV-PET-001.mp4', 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/shop/videos/WV-OUT-001.mp4', 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/shop/videos/WV-ELE-001.mp4', 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/shop/videos/WV-HOM-003.mp4'],
+    desc: '以商品白底图为素材，用 Google Flow（Veo 3.1）生成 4 支带音效的场景短片：橘猫喝水的宠物饮水机、湖边营地的折叠椅、书桌上的三合一无线充、夜间走廊的感应夜灯。逐条检查商品外形还原，ffmpeg 转码为网页格式与封面，投放在独立站首页与商品详情页，ERP 里可上传替换。',
+    tags: ['AI 视频生成', 'Veo 3.1', '提示词设计', 'ffmpeg', '电商投放'],
+    links: [{ label: '观看短片 →', href: 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/', primary: true },
+            { label: '在独立站查看', href: 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/shop/' }] },
   { cat: 'ext',   icon: '🧩', hue: 270, time: 'Chrome', title: 'AI 侧边栏助手',   for: '效率工具',     desc: '浏览任意网页时一键总结、翻译、提取表格数据。', tags: ['Manifest V3', 'AI 接口', '侧边栏'] },
   { cat: 'ext',   icon: '⚡', hue: 290, time: 'Chrome', title: '自动化填表插件',   for: '后台录入',     desc: '识别表单字段，批量导入 Excel 数据自动填写提交。', tags: ['Content Script', 'Excel', '自动化'] },
   { cat: 'web', icon: '🛍️', hue: 190, time: '在线', live: true, title: 'Wavely 多语言独立站 + AI 客服', for: '跨境品牌出海',
-    img: 'assets/works/wavely-shop-home.jpg', gallery: ['assets/works/wavely-shop-home.jpg'],
-    desc: '中英德日西 5 种语言、6 种币种的品牌独立站，下单实时同步到 ERP；内置 DeepSeek AI 客服，多语言导购（对话里直接加购）、查物流、答政策，AI 写的 Listing 直接上架。',
-    tags: ['React', 'Supabase', 'DeepSeek AI', '多语言'],
+    img: 'assets/works/wavely-shop-films.jpg', gallery: ['assets/works/wavely-shop-films.jpg', 'assets/works/wavely-shop-product-de.jpg', 'assets/works/wavely-shop-home.jpg'],
+    desc: '中英德日西 5 种语言、6 种币种的品牌独立站，下单实时同步到 ERP。「颜色 × 尺码」分组选规格、商品图放大镜、首页场景短片；从 1688 采集的商品经 AI 本地化后，商品名、规格、描述都是当地语言。内置 AI 客服：多语言导购（对话里直接加购）、查物流、答政策；访客可切换自己的大模型 Key。',
+    tags: ['React', 'MUI', 'Supabase', 'AI 客服', '五语言 / 六币种'],
     links: [{ label: '在线体验 →', href: 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/shop/', primary: true },
             { label: '查看源码', href: 'https://github.com/xiaozhuangping-cpu/wavely-crossborder' }] },
   { cat: 'web',   icon: '🌐', hue: 40,  time: 'Web',   title: '企业官网',         for: '制造业客户',   desc: '中英双语响应式官网，SEO 优化，后台可自助更新内容。', tags: ['响应式', 'SEO', '多语言'] },
@@ -73,7 +86,9 @@ const modal = $('#modal');
 function openModal(i) {
   const w = WORKS[i];
   $('#modalMedia').innerHTML = w.gallery
-    ? `<div class="gallery">${w.gallery.map(src => `<img src="${src}" alt="${w.title} 截图" loading="lazy" />`).join('')}</div>`
+    ? `<div class="gallery">${w.gallery.map(src => /\.mp4$/.test(src)
+        ? `<video src="${src}" muted loop autoplay playsinline controls preload="metadata"></video>`
+        : `<img src="${src}" alt="${w.title} 截图" loading="lazy" />`).join('')}</div>`
     : `<div class="thumb" style="--h:${w.hue}">${w.icon}</div>`;
   $('#modalCat').textContent = `${CAT_NAME[w.cat]} · for ${w.for} · AI 辅助生成`;
   $('#modalTitle').textContent = w.title;
@@ -84,7 +99,7 @@ function openModal(i) {
   document.body.style.overflow = 'hidden';
   $('#modalClose').focus();
 }
-function closeModal() { modal.hidden = true; document.body.style.overflow = ''; }
+function closeModal() { modal.hidden = true; document.body.style.overflow = ''; $('#modalMedia').innerHTML = ''; }   // 清空以停止视频播放
 grid.addEventListener('click', e => { if (e.target.closest('a')) return; const c = e.target.closest('.work-card'); if (c) openModal(+c.dataset.i); });
 grid.addEventListener('keydown', e => { const c = e.target.closest('.work-card'); if (c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openModal(+c.dataset.i); } });
 $('#modalClose').addEventListener('click', closeModal);
