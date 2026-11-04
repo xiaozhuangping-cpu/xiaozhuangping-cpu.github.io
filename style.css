@@ -170,10 +170,11 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 48px); }
 .credit em { font-family: var(--serif); color: var(--text); }
 .featured-text > p:not(.eyebrow):not(.credit) { color: var(--muted); }
 .featured-details { margin-top: 16px; }
-.featured-details summary { width: fit-content; padding: 6px 0; color: var(--gold); cursor: pointer; font-size: .9rem; }
-.featured-details summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
-.featured-details .when-open, .featured-details[open] .when-closed { display: none; }
-.featured-details[open] .when-open { display: inline; }
+:is(.featured-details, .work-details) summary { width: fit-content; padding: 6px 0; color: var(--gold); cursor: pointer; font-size: .9rem; }
+:is(.featured-details, .work-details) summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
+:is(.featured-details, .work-details) .when-open, :is(.featured-details, .work-details)[open] .when-closed { display: none; }
+:is(.featured-details, .work-details)[open] .when-open { display: inline; }
+.work-details p { margin-top: 6px; }
 .bullets { list-style: none; margin-top: 18px; display: grid; gap: 8px; }
 .bullets li::before { content: "✦"; color: var(--gold); margin-right: 10px; }
 
@@ -243,6 +244,10 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 48px); }
   border: 1px solid var(--line);
 }
 .contact > p:not(.eyebrow) { color: var(--muted); }
+.wechat-contact { margin: 28px auto 0; width: 264px; max-width: 100%; }
+.wechat-contact a, .wechat-contact img { display: block; width: 100%; }
+.wechat-contact img { height: auto; border-radius: 12px; }
+.wechat-contact figcaption { margin-top: 10px; color: var(--muted); font-size: .88rem; }
 
 .footer {
   max-width: 1200px; margin: clamp(56px, 9vw, 100px) auto 0; padding: 28px clamp(16px, 5vw, 48px) 40px;

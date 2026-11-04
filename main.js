@@ -71,7 +71,10 @@ grid.innerHTML = WORKS.map((w, i) => `
       <p class="eyebrow">${CAT_NAME[w.cat]} · <span class="ai-tag">AI 辅助生成</span></p>
       <h3>${w.title}</h3>
       <p class="credit">for <em>${w.for}</em></p>
-      <p>${w.desc}</p>
+      <details class="work-details">
+        <summary><span class="when-closed">展开作品描述</span><span class="when-open">收起作品描述</span></summary>
+        <p>${w.desc}</p>
+      </details>
       <ul class="tags">${w.tags.map(t => `<li>${t}</li>`).join('')}</ul>
       ${w.links ? `<div class="card-links">${linksHtml(w)}</div>` : ''}
     </div>
@@ -113,8 +116,8 @@ function openModal(i) {
   $('#modalClose').focus();
 }
 function closeModal() { modal.hidden = true; document.body.style.overflow = ''; $('#modalMedia').innerHTML = ''; }   // 清空以停止视频播放
-grid.addEventListener('click', e => { if (e.target.closest('a')) return; const c = e.target.closest('.work-card'); if (c) openModal(+c.dataset.i); });
-grid.addEventListener('keydown', e => { const c = e.target.closest('.work-card'); if (c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openModal(+c.dataset.i); } });
+grid.addEventListener('click', e => { if (e.target.closest('a, details')) return; const c = e.target.closest('.work-card'); if (c) openModal(+c.dataset.i); });
+grid.addEventListener('keydown', e => { if (e.target.closest('a, details')) return; const c = e.target.closest('.work-card'); if (c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openModal(+c.dataset.i); } });
 $('#modalClose').addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
