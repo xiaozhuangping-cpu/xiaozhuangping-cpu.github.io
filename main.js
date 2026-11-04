@@ -1,6 +1,13 @@
 // ===== 作品数据：在这里增删改你的项目 =====
 // cat: video | admin | app | ext | web
 const WORKS = [
+  { cat: 'video', icon: '🎞️', hue: 170, time: '01:03', live: true, title: 'Wavely 产品宣传片（代码渲染）', for: 'Wavely 跨境电商全链路',
+    img: 'assets/works/wavely-promo.jpg',
+    gallery: ['https://xiaozhuangping-cpu.github.io/wavely-crossborder/promo/wavely-promo.mp4'],
+    desc: '暗色科技发布风格的一分钟产品片：一张货源卡走完 1688 采集 → AI 本地化 → 五语言上架 → 下单 → 扫码发货 → 补货审批，四端闭环收成一个大数字。画面全部用 Canvas 逐帧渲染（每一帧都是时间的纯函数），配乐为原创合成、按 100 BPM 节拍表与画面事件对齐，AI 中文配音逐句语音识别校对，混音到 −14 LUFS。源码与一键构建脚本开源。',
+    tags: ['程序化动画', 'Canvas', '原创配乐', 'AI 配音', '节拍对齐'],
+    links: [{ label: '观看宣传片 →', href: 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/promo/wavely-promo.mp4', primary: true },
+            { label: '查看源码', href: 'https://github.com/xiaozhuangping-cpu/wavely-crossborder/tree/main/wavely-promo' }] },
   { cat: 'video', icon: '🎬', hue: 10,  time: '02:30', title: '品牌宣传片', for: '新品发布会',   desc: '从脚本、分镜到剪辑调色的一支品牌短片，节奏紧凑、情绪饱满。', tags: ['脚本分镜', '剪辑调色', '配乐字幕'] },
   { cat: 'video', icon: '🎞️', hue: 330, time: '01:00', title: '代码生成动画短片', for: '科普解说',     desc: '用代码逐帧绘制的风格化动画，油画、水彩、浮世绘多种画风可选。', tags: ['程序化动画', 'AI 辅助', '多风格'] },
   { cat: 'admin', icon: '🌊', hue: 195, time: '在线', live: true, title: 'Wavely 跨境电商 ERP', for: '跨境卖家多平台运营',
