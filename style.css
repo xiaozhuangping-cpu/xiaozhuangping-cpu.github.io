@@ -169,6 +169,11 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 48px); }
 .credit { color: var(--muted); margin-bottom: 14px; }
 .credit em { font-family: var(--serif); color: var(--text); }
 .featured-text > p:not(.eyebrow):not(.credit) { color: var(--muted); }
+.featured-details { margin-top: 16px; }
+.featured-details summary { width: fit-content; padding: 6px 0; color: var(--gold); cursor: pointer; font-size: .9rem; }
+.featured-details summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
+.featured-details .when-open, .featured-details[open] .when-closed { display: none; }
+.featured-details[open] .when-open { display: inline; }
 .bullets { list-style: none; margin-top: 18px; display: grid; gap: 8px; }
 .bullets li::before { content: "✦"; color: var(--gold); margin-right: 10px; }
 
