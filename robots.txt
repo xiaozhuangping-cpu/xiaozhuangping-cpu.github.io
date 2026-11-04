@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xiaozhuangping-cpu.github.io/wavely-crossborder/shop/sitemap.xml
