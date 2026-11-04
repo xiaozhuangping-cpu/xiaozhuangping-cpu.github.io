@@ -9,7 +9,6 @@ const WORKS = [
     links: [{ label: '观看宣传片 →', href: 'https://xiaozhuangping-cpu.github.io/wavely-crossborder/promo/wavely-promo.mp4', primary: true },
             { label: '查看源码', href: 'https://github.com/xiaozhuangping-cpu/wavely-crossborder/tree/main/wavely-promo' }] },
   { cat: 'video', icon: '🎬', hue: 10,  time: '02:30', title: '品牌宣传片', for: '新品发布会',   desc: '从脚本、分镜到剪辑调色的一支品牌短片，节奏紧凑、情绪饱满。', tags: ['脚本分镜', '剪辑调色', '配乐字幕'] },
-  { cat: 'video', icon: '🎞️', hue: 330, time: '01:00', title: '代码生成动画短片', for: '科普解说',     desc: '用代码逐帧绘制的风格化动画，油画、水彩、浮世绘多种画风可选。', tags: ['程序化动画', 'AI 辅助', '多风格'] },
   { cat: 'admin', icon: '🌊', hue: 195, time: '在线', live: true, title: 'Wavely 跨境电商 ERP', for: '跨境卖家多平台运营',
     img: 'assets/works/wavely-erp-dashboard.jpg', gallery: ['assets/works/wavely-erp-dashboard.jpg', 'assets/works/wavely-erp-inbox.jpg', 'assets/works/wavely-1688-collect.jpg'],
     desc: 'Amazon / Shopee / TikTok Shop / 独立站订单统一处理；SPU + 多规格 SKU、海外仓 / FBA 库存预警；按仓库计算补货建议，一键按供应商拆单生成采购单，分批收货入库。老板 / 采购 / 仓库三种角色的权限在数据库层强制，超过 ¥5,000 的采购单走审批流，关键操作全部记入操作日志，采购单与补货建议可导出 Excel。内置 AI 运营助手：问数据出图表、写多语言 Listing、查补货，写操作需确认。每次发布前 CI 自动跑数据库测试。访客免注册，可切换身份体验。',
