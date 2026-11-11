@@ -107,7 +107,7 @@ menuBtn.addEventListener('click', () => {
   const open = navLinks.classList.toggle('open');
   menuBtn.setAttribute('aria-expanded', open);
 });
-$$('#navLinks a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+$$('#navLinks a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }));
 
 // Theme toggle
 $('#themeBtn').addEventListener('click', () => {
@@ -121,6 +121,7 @@ $('#themeBtn').addEventListener('click', () => {
 // Reveal on scroll + count-up
 const countUp = el => {
   const target = +el.dataset.count, suffix = el.dataset.suffix || '', start = performance.now();
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = target + suffix; return; }
   const tick = t => {
     const p = Math.min((t - start) / 1200, 1);
     el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
@@ -144,3 +145,17 @@ if ('IntersectionObserver' in window) {
 $('#year').textContent = new Date().getFullYear();
 
 loadWorks();
+
+// Keep the scroll indicator passive and skip it when motion is reduced.
+const progress = $('#scrollProgress');
+if (progress && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let scheduled = false;
+  const updateProgress = () => {
+    const available = document.documentElement.scrollHeight - innerHeight;
+    progress.style.transform = `scaleX(${available > 0 ? Math.min(1, Math.max(0, scrollY / available)) : 0})`;
+    scheduled = false;
+  };
+  addEventListener('scroll', () => { if (!scheduled) { scheduled = true; requestAnimationFrame(updateProgress); } }, { passive: true });
+  addEventListener('resize', updateProgress, { passive: true });
+  updateProgress();
+}
