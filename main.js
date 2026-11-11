@@ -74,6 +74,11 @@ $$('.chip').forEach(chip => chip.addEventListener('click', () => {
   applyFilter(chip.dataset.filter);
 }));
 applyFilter('all');
+// Skill links open the corresponding portfolio category.
+$$('[data-skill-filter]').forEach(link => link.addEventListener('click', () => {
+  const filter = link.dataset.skillFilter;
+  $$('.chip').find(chip => chip.dataset.filter === filter)?.click();
+}));
 
 // Modal
 const modal = $('#modal');
