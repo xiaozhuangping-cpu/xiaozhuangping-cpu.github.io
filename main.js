@@ -74,6 +74,20 @@ $$('.chip').forEach(chip => chip.addEventListener('click', () => {
   applyFilter(chip.dataset.filter);
 }));
 applyFilter('all');
+// Progressive enhancement: without JavaScript, every capability remains visible.
+const orbit = $('.skills-orbit');
+const skillPanels = $$('.skill-entry');
+if (orbit && skillPanels.length === 5) {
+  const nodes = $$('.orbit-node', orbit);
+  const showSkill = index => {
+    nodes.forEach((node, i) => node.setAttribute('aria-pressed', String(i === index)));
+    skillPanels.forEach((panel, i) => { panel.hidden = i !== index; if (i === index) panel.classList.add('in'); });
+  };
+  nodes.forEach((node, index) => node.addEventListener('click', () => showSkill(index)));
+  orbit.hidden = false;
+  $('.skills-layout').classList.add('has-orbit');
+  showSkill(0);
+}
 // Skill links open the corresponding portfolio category.
 $$('[data-skill-filter]').forEach(link => link.addEventListener('click', () => {
   const filter = link.dataset.skillFilter;
