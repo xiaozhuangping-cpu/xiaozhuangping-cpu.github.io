@@ -1,6 +1,11 @@
 // ===== 作品数据：在这里增删改你的项目 =====
 // cat: video | admin | app | ext | web
 const WORKS = [
+  { cat: 'web', icon: '✳️', hue: 105, time: '在线', live: true, title: '项目来信 · 开发需求收集站', for: '软件开发需求收集与跟进',
+    desc: '面向网站、小程序、管理系统和 AI 应用等开发需求的收集网站。客户填写需求后保存至 Supabase；管理员登录后台后可搜索、筛选、分页查看，并记录状态、报价和跟进备注。页面支持手机与电脑访问，通知渠道待配置。',
+    tags: ['React', 'shadcn/ui', 'AG Grid', 'Supabase', '响应式'],
+    links: [{ label: '在线体验 →', href: 'https://xiaozhuangping-cpu.github.io/project-inquiry/', primary: true },
+            { label: '查看源码', href: 'https://github.com/xiaozhuangping-cpu/project-inquiry' }] },
   { cat: 'video', icon: '🎞️', hue: 170, time: '01:03', live: true, title: 'Wavely 产品宣传片（代码渲染）', for: 'Wavely 跨境电商全链路',
     img: 'assets/works/wavely-promo.jpg',
     gallery: ['https://xiaozhuangping-cpu.github.io/wavely-crossborder/promo/wavely-promo.mp4'],
