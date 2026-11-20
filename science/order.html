@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>我的作品 · 价格 | 小庄 Studio 科普动画</title>
+  <meta name="description" content="医疗健康、心理、生活科普动画作品集：中风 120、mRNA 疫苗、一天八杯水、纹身为什么难洗掉等。原创绘制，先出小样，包修改。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="医疗健康科普动画 · 作品集" />
+  <meta property="og:description" content="原创科普动画：疾病识别、健康知识、心理与生活科普。完整视频在线观看。" />
+  <meta property="og:url" content="https://xiaozhuangping-cpu.github.io/science/" />
+  <meta property="og:image" content="https://xiaozhuangping-cpu.github.io/science/videos/tattoo.jpg" />
+  <meta property="og:locale" content="zh_CN" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0b09; --bg-2: #16130f; --card: #1c1814;
+      --line: rgba(255, 236, 200, 0.12); --text: #f3ece0; --muted: #a89d8c;
+      --gold: #d9b26a; --gold-2: #f0d595;
+      --radius: 18px;
+      --serif: "Noto Serif SC", "Songti SC", serif;
+      --sans: "Inter", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #f7f2e9; --bg-2: #efe7d8; --card: #fffaf2;
+        --line: rgba(60, 40, 10, 0.12); --text: #231c12; --muted: #6f6453;
+        --gold: #a87a26; --gold-2: #8a6010;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text); font-family: var(--sans);
+      line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(60vw 40vw at 80% -10%, color-mix(in srgb, var(--gold) 16%, transparent), transparent 70%),
+        radial-gradient(50vw 40vw at -10% 30%, color-mix(in srgb, var(--gold) 7%, transparent), transparent 70%);
+    }
+    a { color: var(--gold-2); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 56px 0 28px; text-align: center; }
+    .eyebrow { color: var(--gold); letter-spacing: .2em; font-size: 13px; font-weight: 600; }
+    h1 { font-family: var(--serif); font-weight: 900; font-size: clamp(30px, 6vw, 52px); line-height: 1.25; margin: 10px 0 14px; }
+    .lead { color: var(--muted); max-width: 640px; margin: 0 auto; font-size: 16px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 22px; }
+    .badge { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
+    .badge b { color: var(--gold-2); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin: 28px 0 48px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+    .card video { width: 100%; aspect-ratio: 16 / 9; background: #000; display: block; object-fit: contain; }
+    .card.vertical video { aspect-ratio: 9 / 16; max-height: 560px; }
+    .meta { padding: 14px 16px 18px; }
+    .meta h3 { font-family: var(--serif); font-size: 19px; margin-bottom: 4px; }
+    .meta p { color: var(--muted); font-size: 14px; }
+    .tag { display: inline-block; font-size: 12px; color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); border-radius: 6px; padding: 0 6px; margin-right: 6px; }
+    section h2 { font-family: var(--serif); font-size: 26px; margin: 8px 0 16px; }
+    .panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 22px; margin-bottom: 20px; }
+    .prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+    .price { border: 1px solid var(--line); border-radius: 12px; padding: 14px; text-align: center; background: var(--bg-2); }
+    .price .t { color: var(--muted); font-size: 14px; }
+    .price .v { font-family: var(--serif); font-size: 28px; font-weight: 900; color: var(--gold-2); }
+    ol.steps { padding-left: 1.3em; display: grid; gap: 8px; }
+    ul.dots { padding-left: 1.2em; display: grid; gap: 6px; color: var(--text); }
+    .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
+    footer { text-align: center; color: var(--muted); font-size: 13px; padding: 30px 0 50px; }
+    @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } header { padding-top: 40px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">MY WORKS · PRICING</div>
+      <h1>我的作品 · 价格</h1>
+      <p class="lead">疾病识别口诀、健康知识、心理与生活科普。下方是我做过的部分完整成片，可以直接播放。风格不限，想看更多风格可以去 <a href="./">99 种风格目录</a> 挑一种。</p>
+      <div class="badges">
+        <span class="badge"><b>40+</b> 部原创成片</span>
+        <span class="badge"><b>风格不限</b> · 按需定制</span>
+        <span class="badge">先出小样再付款</span>
+        <span class="badge">修改 <b>2</b> 次不加钱</span>
+        <span class="badge">1080P · 横竖屏</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="grid" id="works"></div>
+
+      <section>
+        <h2>价格（按时长）</h2>
+        <div class="panel">
+          <div class="prices">
+            <div class="price"><div class="t">30 秒内</div><div class="v">¥59</div></div>
+            <div class="price"><div class="t">1 分钟内</div><div class="v">¥129</div></div>
+            <div class="price"><div class="t">3 分钟内</div><div class="v">¥299</div></div>
+            <div class="price"><div class="t">24 小时加急</div><div class="v">+30%</div></div>
+          </div>
+          <p class="note">交期参考：30 秒 2–3 天 · 1 分钟 3–5 天 · 3 分钟 5–7 天。配乐、音效、字幕全包。</p>
+        </div>
+      </section>
+
+      <section id="how">
+        <h2>怎么合作</h2>
+        <div class="panel">
+          <ol class="steps">
+            <li>发文案或要点（没有文案的话，可以按您提供的权威资料整理，由您审核）</li>
+            <li>24 小时内出 10 秒小样，先确认效果</li>
+            <li>效果满意再下单，出完整初稿</li>
+            <li>修改 2 次以内不加钱，确认后交付 1080P 成片</li>
+          </ol>
+          <ul class="dots" style="margin-top:14px">
+            <li>先看小样再付款，小样不满意不收费</li>
+            <li>医疗内容以您提供或确认的文案为准，只负责动画制作，不提供诊疗建议</li>
+          </ul>
+          <p class="note">下单请回到闲鱼「给AI当导演的汪」，全程平台担保交易。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 小庄 Studio · <a href="./">99 种风格目录</a> · <a href="../">返回主页</a></footer>
+  </div>
+
+  <script>
+    const WORKS = [
+      { slug: 'stroke-120', title: '中风 120 识别口诀', desc: '看脸、查手臂、听说话，一项异常立刻拨打 120。', tags: ['疾病识别', '15 秒样片'] },
+      { slug: 'mrna', title: 'mRNA 疫苗，不改变你的 DNA', desc: '细胞层面讲清 mRNA 疫苗的工作原理。', tags: ['医学原理'] },
+      { slug: 'eight-cups', title: '一天八杯水，有依据吗？', desc: '从文献出发拆解“八杯水”的说法。', tags: ['健康常识'] },
+      { slug: 'tattoo', title: '纹身为什么难洗掉？', desc: '巨噬细胞与色素颗粒的微观故事。', tags: ['医学原理', '3D 细胞'] },
+      { slug: 'wake-3am', title: '凌晨三点总醒来', desc: '睡眠与作息的科普短片。', tags: ['睡眠健康'] },
+      { slug: 'telomere', title: '天年与端粒', desc: '端粒、衰老与寿命的关系。', tags: ['长寿科普'] },
+      { slug: 'not-lazy', title: '你不是懒', desc: '用实验讲清拖延背后的心理机制。', tags: ['心理科普'] },
+      { slug: 'sound-illusion', title: '声音错觉', desc: '耳朵和大脑是怎么“骗”你的。', tags: ['感知科普', '竖屏'], vertical: true },
+      { slug: 'same-90c', title: '同样是 90℃', desc: '桑拿和开水为什么体感完全不同。', tags: ['生活科普', '竖屏'], vertical: true },
+    ];
+    const grid = document.getElementById('works');
+    for (const w of WORKS) {
+      const card = document.createElement('article');
+      card.className = 'card' + (w.vertical ? ' vertical' : '');
+      card.innerHTML = `
+        <video controls playsinline preload="none" poster="videos/${w.slug}.jpg" src="videos/${w.slug}.mp4"></video>
+        <div class="meta">
+          <h3></h3>
+          <p></p>
+          <div style="margin-top:8px">${w.tags.map(t => `<span class="tag"></span>`).join('')}</div>
+        </div>`;
+      card.querySelector('h3').textContent = w.title;
+      card.querySelector('p').textContent = w.desc;
+      card.querySelectorAll('.tag').forEach((el, i) => { el.textContent = w.tags[i]; });
+      grid.appendChild(card);
+    }
+    // 同时只播放一个视频
+    grid.addEventListener('play', (e) => {
+      grid.querySelectorAll('video').forEach(v => { if (v !== e.target) v.pause(); });
+    }, true);
+  </script>
+</body>
+</html>
